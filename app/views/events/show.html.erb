@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Org:</strong>
+  <%= @event.org_id %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @event.venue_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @event.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @event.end_date %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @event.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @event.end_time %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @event.url %>
+</p>
+
+<p>
+  <strong>Spec instruction:</strong>
+  <%= @event.spec_instruction %>
+</p>
+
+<p>
+  <strong>Ticket rsvp instruction:</strong>
+  <%= @event.ticket_rsvp_instruction %>
+</p>
+
+<p>
+  <strong>Price low:</strong>
+  <%= @event.price_low %>
+</p>
+
+<p>
+  <strong>Price high:</strong>
+  <%= @event.price_high %>
+</p>
+
+<p>
+  <strong>Restriction:</strong>
+  <%= @event.restriction %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @event.category %>
+</p>
+
+<p>
+  <strong>Subcategory:</strong>
+  <%= @event.subcategory %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
