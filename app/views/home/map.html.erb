@@ -1,39 +1,26 @@
 <!--create search box in index template-->
 <style type="text/css">
   #content {
-    /*min-height: 70px;
-    max-height: 100px;
-    height: auto;
-    width: auto;
-    max-width: 300px;
-    padding: 2px;*/
     overflow: hidden;
   }
   .gm-style .gm-style-iw{
     overflow: hidden;
   }
 </style>
-<!--
-<%= form_tag root_path, :method => :get do %>
-  <%= text_field_tag :event_name, params[:event_name] %>
-  <%= text_field_tag :venue_name, params[:venue_name] %>
-  <%= submit_tag "Search", name: nil %>
-<% end %>
--->
+
 <%= form_tag(root_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search Me" %>
-
   <%= check_box_tag(:search, "art") %> <%= label_tag(:categories, "Art") %>
   <%= check_box_tag(:search, "performance") %> <%= label_tag(:categories, "Performance") %>
   <%= check_box_tag(:search, "science") %> <%= label_tag(:categories, "Science/Tech") %>
   <%= submit_tag "search events", :name => nil %>
 <% end %>
 
-
-
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false">
 </script>
+<!-- MAP container -->
 <div id="map" style="width: auto; height: 500px;"></div>
+
 <h1>Events</h1>
 <table>
   <thead>
@@ -59,44 +46,39 @@
 </table>
 
 
-<!-- my map -->
+<!-- google map api -->
 
 <%= javascript_tag do %>
- window.venuesURL = "<%=j venues_url %>";
- window.eventsURL = "<%=j events_url %>";
-
- //get name, latitude and longitude columns from venues table
- //@venues.select("name","latitude","longitude").to_json
+  window.venuesURL = "<%=j venues_url %>";
+  window.eventsURL = "<%=j events_url %>";
+  //get get the array of venues for the loaded events
   window.events = <%=raw @eventVenuesArr.to_json %>;
 
   var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 13,
-      center: new google.maps.LatLng(37.7745140408613, -122.44537353515625),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+    zoom: 13,
+    center: new google.maps.LatLng(37.7745140408613, -122.44537353515625),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
 
-    var infowindow = new google.maps.InfoWindow();
-
+  var infowindow = new google.maps.InfoWindow();
     var marker, i;
-
-     for (i = 0; i < events.length; i++) {  
+    for (i = 0; i < events.length; i++) {  
+     
       marker = new google.maps.Marker({
-       position: new google.maps.LatLng(events[i][2], events[i][3]),
-       map: map
+        position: new google.maps.LatLng(events[i][2], events[i][3]),
+        map: map
       });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        
         return function() {
-          infowindow.setContent("<span id='content'>" + "<p ><strong>" + events[i][0] + "</strong></p>" + "<p>Location: " + events[i][1] + "</p>" + "<p>Description: "+ events[i][4] + "</p>" +"</span>");
+          infowindow.setContent(
+            "<span id='content'>" + "<p ><strong>" + events[i][0] + "</strong></p>" + "<p>Location: " + events[i][1] + "</p>" + "<p>Description: "+ events[i][4] + "</p>" +"</span>"
+          );
           infowindow.open(map, marker);
         }
+
       })(marker, i));
 
-      }
-
-     
-
-   
-   
-
+    }
 <% end %>
