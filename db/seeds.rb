@@ -41,6 +41,7 @@ open("http://natashashannon.com/web/events.csv") do |events|
     if k==0 then
       puts "skip first line for events"
     else
+        p event.chomp.split(",")
       org_id, venue_id, name, start_date, end_date, start_time, end_time, description, url, spec_instruction, ticket_rsvp_instruction, price_low, price_high, restriction, category, subcategory = event.chomp.split(",")
       Event.create!(:org_id => org_id, :venue_id => venue_id, :name => name, :start_date => start_date, :end_date => end_date, :start_time => start_time, :end_time => end_time, :description => description, :url => url, :spec_instruction => spec_instruction, :ticket_rsvp_instruction => ticket_rsvp_instruction, :price_low => price_low, :price_high => price_high, :restriction => restriction, :category => category, :subcategory => subcategory)
     end
