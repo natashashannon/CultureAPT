@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140913182450) do
+ActiveRecord::Schema.define(version: 20140920164157) do
 
   create_table "events", force: true do |t|
     t.integer  "org_id"
@@ -37,6 +37,37 @@ ActiveRecord::Schema.define(version: 20140913182450) do
   create_table "orgs", force: true do |t|
     t.string   "name"
     t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "suggestions", force: true do |t|
+    t.string   "org_name"
+    t.integer  "org_id"
+    t.integer  "venue_id"
+    t.string   "event_name"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "start_time"
+    t.string   "end_time"
+    t.text     "description"
+    t.string   "event_url"
+    t.text     "spec_instruction"
+    t.text     "ticket_rsvp_instruction"
+    t.float    "price_low",               limit: 24
+    t.float    "price_high",              limit: 24
+    t.text     "restriction"
+    t.string   "category"
+    t.string   "subcategory"
+    t.string   "venue_name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "venue_url"
+    t.string   "phone"
+    t.float    "latitude",                limit: 24
+    t.float    "longitude",               limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
   end
