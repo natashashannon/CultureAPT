@@ -11,8 +11,16 @@ class Event < ActiveRecord::Base
 		# where(['? <= start_date AND ? >= end_date', "%#{startDate}%", "%#{endDate}%"])
 	end
 
-	def self.findCategory categorySearch1, categorySearch2
-		where(['category Like ? OR category Like ?', "%#{categorySearch1}%" , "%#{categorySearch2}%"])
+	def self.findAllCategories cat1, cat2, cat3
+		where(['category Like ? OR category Like ? OR category Like ?', "%#{cat1}%" , "%#{cat2}%", "%#{cat3}%"])
+	end
+
+	def self.findTwoCategories cat1, cat2
+		where(['category Like ? OR category Like ?', "%#{cat1}%" , "%#{cat2}%"])
+	end
+
+	def self.findCategory cat
+		where(['category Like ?', "%#{cat}%"])
 	end
 	
 end
