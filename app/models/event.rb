@@ -1,23 +1,26 @@
 class Event < ActiveRecord::Base
-	# belongs_to :venue, :org
-	belongs_to :org
-	belongs_to :venue
-
-	# has_one :org
-	# has_many :venues
-
-	# # has_many :join_event_model
-
-
-	# class JoinEventModel < ActiveRecord::Base
-	# 	belongs_to :venue
-	# 	belongs_to :org
-	# 	belongs_to :event
-	# end
-
 
 	def self.search search
 		# return scope unless search.present? 
 		where(['name LIKE ? OR category LIKE ? OR subcategory LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"]) #column name before LIKE ?, change it to the correct name.
 	end
+
+	def self.findDates startDate, endDate
+		# where(['start_date Like ? AND end_Date LIKE ?', "%#{startDate}%", "%#{endDate}%" ])
+		# where(['start_date >= ? AND end_date <= ?', "%#{startDate}%", "%#{endDate}%"])
+		# where(['? <= start_date AND ? >= end_date', "%#{startDate}%", "%#{endDate}%"])
+	end
+
+	def self.findAllCategories cat1, cat2, cat3
+		where(['category Like ? OR category Like ? OR category Like ?', "%#{cat1}%" , "%#{cat2}%", "%#{cat3}%"])
+	end
+
+	def self.findTwoCategories cat1, cat2
+		where(['category Like ? OR category Like ?', "%#{cat1}%" , "%#{cat2}%"])
+	end
+
+	def self.findCategory cat
+		where(['category Like ?', "%#{cat}%"])
+	end
+	
 end

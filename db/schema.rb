@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140919161944) do
+=======
+ActiveRecord::Schema.define(version: 20140920164157) do
+>>>>>>> upstream/master
 
   create_table "events", force: true do |t|
     t.integer  "org_id"
@@ -72,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140919161944) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "suggests", force: true do |t|
     t.string   "org_name"
     t.integer  "org_id"
@@ -102,6 +107,8 @@ ActiveRecord::Schema.define(version: 20140919161944) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> upstream/master
   create_table "venues", force: true do |t|
     t.string   "name"
     t.string   "street"

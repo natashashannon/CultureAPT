@@ -1,38 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Org:</strong>
-  <%= @event.org_id %>
+
 </p>
 
 <p>
-  <strong>Venue:</strong>
-  <%= @event.venue_id %>
+  <strong>Event:</strong>
+ <!--  <%= @event.name %> -->
+  <%= link_to @event.name, @event.url  %>
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @event.name %>
+  <strong>Time:</strong>
+  <%= @event.start_time %>, <% @event.end_time %>
+  <%= @event.start_date %> <% @event.end_date %>
 </p>
 
 <p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
+  <strong>Location: </strong>
+  <%= Venue.find_by_id(@event.venue_id).name %>,
+  <%= Venue.find_by_id(@event.venue_id).street %>,
+  <%= Venue.find_by_id(@event.venue_id).city %>,
+  <%= Venue.find_by_id(@event.venue_id).state %>,
+  <%= Venue.find_by_id(@event.venue_id).zip %>
 
-<p>
-  <strong>End date:</strong>
-  <%= @event.end_date %>
-</p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
 </p>
 
 <p>
@@ -41,42 +32,21 @@
 </p>
 
 <p>
-  <strong>Url:</strong>
-  <%= @event.url %>
-</p>
-
-<p>
-  <strong>Spec instruction:</strong>
+ <strong> Spec instructions: </strong>
   <%= @event.spec_instruction %>
-</p>
-
-<p>
-  <strong>Ticket rsvp instruction:</strong>
-  <%= @event.ticket_rsvp_instruction %>
-</p>
-
-<p>
-  <strong>Price low:</strong>
-  <%= @event.price_low %>
-</p>
-
-<p>
-  <strong>Price high:</strong>
-  <%= @event.price_high %>
-</p>
-
-<p>
-  <strong>Restriction:</strong>
+<%= @event.ticket_rsvp_instruction %>
   <%= @event.restriction %>
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @event.category %>
+ <strong> Price: </strong>
+  <%= @event.price_low %>  
+  <%= @event.price_high %>
 </p>
 
 <p>
-  <strong>Subcategory:</strong>
+  <strong>Event Category:</strong>
+  <%= @event.category %>
   <%= @event.subcategory %>
 </p>
 

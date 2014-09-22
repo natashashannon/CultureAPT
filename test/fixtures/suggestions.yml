@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  org_name: MyString
+  org_id: 1
+  venue_id: 1
+  event_name: MyString
+  start_date: 2014-09-20
+  end_date: 2014-09-20
+  start_time: MyString
+  end_time: MyString
+  description: MyText
+  event_url: MyString
+  spec_instruction: MyText
+  ticket_rsvp_instruction: MyText
+  price_low: 1.5
+  price_high: 1.5
+  restriction: MyText
+  category: MyString
+  subcategory: MyString
+  venue_name: MyString
+  street: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  venue_url: MyString
+  phone: MyString
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  org_name: MyString
+  org_id: 1
+  venue_id: 1
+  event_name: MyString
+  start_date: 2014-09-20
+  end_date: 2014-09-20
+  start_time: MyString
+  end_time: MyString
+  description: MyText
+  event_url: MyString
+  spec_instruction: MyText
+  ticket_rsvp_instruction: MyText
+  price_low: 1.5
+  price_high: 1.5
+  restriction: MyText
+  category: MyString
+  subcategory: MyString
+  venue_name: MyString
+  street: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  venue_url: MyString
+  phone: MyString
+  latitude: 1.5
+  longitude: 1.5
